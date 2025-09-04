@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 组件开发指南
+
+## 组件位置
+所有可重用组件都位于 `components` 目录下。
+
+## 组件命名规范
+- 使用 PascalCase 命名组件文件（如 `Button.tsx`、`UserCard.tsx`）
+- 组件名称应与文件名匹配
+- 使用描述性名称，表明组件的用途
+
+## 组件结构
+```typescript
+// 导入语句
+import { type FC } from 'react'
+
+// 类型定义
+interface Props {
+  // 组件属性
+}
+
+// 组件定义
+export const ComponentName: FC<Props> = ({ prop1, prop2 }) => {
+  // 组件逻辑
+  
+  return (
+    // JSX
+  )
+}
+```
+
+## 样式指南
+- 优先使用 Shadcn.UI
+- 使用 Tailwind CSS 进行样式设计
+- 遵循移动优先的响应式设计原则
+- 使用 `@apply` 指令组织复杂的样式
+- 保持样式的一致性和可维护性
+
+## 最佳实践
+1. 组件应该是单一职责的
+2. 使用 TypeScript 类型定义
+3. 添加适当的注释和文档
+4. 确保组件是可重用的
+5. 使用适当的错误处理和加载状态
+6. 实现适当的可访问性（a11y）支持
+
+## 常用组件模式
+- 受控组件
+- 非受控组件
+- 

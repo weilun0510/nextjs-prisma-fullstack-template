@@ -1,0 +1,71 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# shadcn/ui 组件使用指南
+
+## 组件位置
+所有 shadcn/ui 组件都位于 `components/ui` 目录下。
+
+## 组件命名规范
+- 使用 PascalCase 命名组件文件（如 `Button.tsx`、`Card.tsx`）
+- 组件名称应与文件名匹配
+- 使用描述性名称，表明组件的用途
+
+## 组件结构
+```typescript
+// 导入语句
+import { type FC } from 'react'
+import { cn } from "@/lib/utils"
+
+// 类型定义
+interface Props {
+  className?: string
+  // 其他属性
+}
+
+// 组件定义
+export const ComponentName: FC<Props> = ({ className, ...props }) => {
+  return (
+    <div className={cn("基础样式", className)} {...props}>
+      {/* 组件内容 */}
+    </div>
+  )
+}
+```
+
+## 样式指南
+- 使用 Tailwind CSS 进行样式设计
+- 使用 `cn()` 工具函数合并类名
+- 遵循移动优先的响应式设计原则
+- 使用 `@apply` 指令组织复杂的样式
+- 保持样式的一致性和可维护性
+
+## 常用组件
+- [Button](mdc:components/ui/button.tsx): 按钮组件
+- [Card](mdc:components/ui/card.tsx): 卡片组件
+- [Input](mdc:components/ui/input.tsx): 输入框组件
+- [Select](mdc:components/ui/select.tsx): 选择器组件
+- [Dialog](mdc:components/ui/dialog.tsx): 对话框组件
+- [DropdownMenu](mdc:components/ui/dropdown-menu.tsx): 下拉菜单组件
+- [Form](mdc:components/ui/form.tsx): 表单组件
+- [Table](mdc:components/ui/table.tsx): 表格组件
+
+## 最佳实践
+1. 组件应该是单一职责的
+2. 使用 TypeScript 类型定义
+3. 添加适当的注释和文档
+4. 确保组件是可重用的
+5. 使用适当的错误处理和加载状态
+6. 实现适当的可访问性（a11y）支持
+7. 使用 `cn()` 函数合并类名
+8. 保持组件的可定制性
+
+## 常用组件模式
+- 受控组件
+- 非受控组件
+- 复合组件
+- 高阶组件（HOC）
+- 自定义 Hook
+

@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 数据库模型指南
+
+## Prisma Schema 位置
+数据库模型定义在 [prisma/schema.prisma](mdc:prisma/schema.prisma) 文件中。
+
+## 模型命名规范
+- 使用 PascalCase 命名模型（如 `User`、`Post`）
+- 使用 camelCase 命名字段（如 `createdAt`、`updatedAt`）
+- 关系字段使用单数形式（如 `author`、`category`）
+
+## 常用字段类型
+- `String`: 文本数据
+- `Int`: 整数
+- `Float`: 浮点数
+- `Boolean`: 布尔值
+- `DateTime`: 日期时间
+- `Json`: JSON 数据
+- `Enum`: 枚举类型（用于状态、类型等）
+
+## 关系定义
+- 一对一关系：使用 `@relation` 装饰器
+- 一对多关系：使用数组类型（如 `Post[]`）
+- 多对多关系：使用中间表或数组类型
+
+## 常用装饰器
+- `@id`: 主键
+- `@unique`: 唯一约束
+- `@default`: 默认值
+- `@updatedAt`: 自动更新时间戳
+- `@map`: 数据库表/列名映射
+- `@relation`: 关系定义
+- `@index`: 索引定义
+
+## 最佳实践
+1. 始终包含 `id`、`createdAt` 和 `updatedAt` 字段
+2. 使用 `@relation` 明确定义关系
+3. 为重要字段添加适当的索引
+4. 使用 `@map` 保持数据库命名规范
+5. 使用枚举类型定义状态字段
+6. 为表单字段添加适当的验证规则
+7. 使用 `@default` 设置合理的默认值
+8. 考虑使用软删除（`deletedAt` 字段）
+
+## 与 shadcn/ui 集成
+1. 使用 Prisma 生成的类型与表单组件集成
+2. 在 API 路由中使用 Prisma Client
+3. 使用 Prisma 的查询构建器优化性能
+4. 实现适当的错误处理
+5. 使用事务确保数据一致性
